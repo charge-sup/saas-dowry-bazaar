@@ -82,6 +82,21 @@ export default {
           light: "#50C878",
           dark: "#004d00",
         },
+        saffron: {
+          DEFAULT: "#FF9933",
+          light: "#FFAC42",
+          dark: "#E57300",
+        },
+        royal: {
+          DEFAULT: "#034219", // Deep green for dark mode background
+          dark: "#022712",
+          light: "#045823",
+        },
+        filigree: {
+          DEFAULT: "#D4AF37", // Golden filigree color
+          light: "#F0DA8A",
+          dark: "#B8860B",
+        },
       },
       fontFamily: {
         serif: ["Playfair Display", "serif"],
@@ -121,6 +136,18 @@ export default {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-10px)" },
         },
+        shimmer: {
+          "0%": { backgroundPosition: "-500px 0" },
+          "100%": { backgroundPosition: "500px 0" },
+        },
+        goldenPulse: {
+          "0%, 100%": { boxShadow: "0 0 0 0 rgba(212, 175, 55, 0)" },
+          "50%": { boxShadow: "0 0 10px 3px rgba(212, 175, 55, 0.5)" },
+        },
+        filigreeAppear: {
+          "0%": { opacity: "0", transform: "scale(0.94)" },
+          "100%": { opacity: "1", transform: "scale(1)" },
+        }
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -130,11 +157,19 @@ export default {
         fadeInRight: "fadeInRight 0.6s ease-out forwards",
         scaleIn: "scaleIn 0.5s ease-out forwards",
         float: "float 5s ease-in-out infinite",
+        shimmer: "shimmer 2s linear infinite",
+        goldenPulse: "goldenPulse 2s ease-in-out infinite",
+        filigreeAppear: "filigreeAppear 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards",
       },
       boxShadow: {
         glass: "0 4px 30px rgba(0, 0, 0, 0.1)",
         soft: "0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01)",
         elegant: "0 10px 30px -15px rgba(0, 0, 0, 0.2)",
+        gold: "0 0 15px 2px rgba(212, 175, 55, 0.3)",
+      },
+      backgroundImage: {
+        "gold-gradient": "linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C)",
+        "filigree-pattern": "url('/lovable-uploads/30545a1f-538a-4935-bb2c-68f6fe310646.png')",
       },
     },
   },

@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
@@ -37,6 +38,37 @@
     --radius: 0.75rem;
   }
 
+  /* Dark mode theme colors */
+  .dark {
+    --background: 144 88% 13%;  /* #034219 */
+    --foreground: 45 76% 54%;  /* #D4AF37 */
+
+    --card: 144 87% 10%;
+    --card-foreground: 45 76% 54%;
+
+    --popover: 144 87% 13%;
+    --popover-foreground: 45 76% 54%;
+
+    --primary: 45 76% 52%;  /* Golden primary */
+    --primary-foreground: 144 88% 13%;
+
+    --secondary: 45 73% 70%;
+    --secondary-foreground: 144 88% 13%;
+
+    --muted: 144 30% 20%;
+    --muted-foreground: 45 40% 70%;
+
+    --accent: 45 80% 60%;
+    --accent-foreground: 144 88% 13%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 144 88% 13%;
+
+    --border: 144 40% 20%;
+    --input: 144 40% 20%;
+    --ring: 45 76% 52%;
+  }
+
   * {
     @apply border-border;
   }
@@ -46,7 +78,7 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-background text-foreground font-sans dark:bg-royal;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -60,23 +92,23 @@
   }
   
   .glass {
-    @apply bg-white/80 backdrop-blur-sm border border-white/20 shadow-glass;
+    @apply bg-white/80 backdrop-blur-sm border border-white/20 shadow-glass dark:bg-royal-light/40 dark:border-filigree/10;
   }
   
   .btn-primary {
-    @apply px-6 py-3 bg-burgundy text-white rounded-md font-medium transition-all duration-300 hover:bg-burgundy-dark hover:shadow-md active:scale-[0.98];
+    @apply px-6 py-3 bg-burgundy text-white rounded-md font-medium transition-all duration-300 hover:bg-burgundy-dark hover:shadow-md active:scale-[0.98] dark:bg-filigree dark:text-royal-dark dark:hover:bg-filigree-light relative overflow-hidden after:absolute after:inset-0 after:bg-filigree-pattern after:bg-no-repeat after:bg-center after:bg-contain after:opacity-0 after:transition-opacity hover:after:opacity-20 dark:hover:shadow-gold;
   }
   
   .btn-secondary {
-    @apply px-6 py-3 bg-gold text-black rounded-md font-medium transition-all duration-300 hover:bg-gold-dark hover:shadow-md active:scale-[0.98];
+    @apply px-6 py-3 bg-gold text-black rounded-md font-medium transition-all duration-300 hover:bg-gold-dark hover:shadow-md active:scale-[0.98] dark:bg-royal-light dark:text-filigree dark:hover:bg-royal dark:border dark:border-filigree/30 dark:hover:border-filigree relative overflow-hidden after:absolute after:inset-0 after:bg-filigree-pattern after:bg-no-repeat after:bg-center after:bg-contain after:opacity-0 after:transition-opacity hover:after:opacity-20;
   }
   
   .btn-outline {
-    @apply px-6 py-3 border border-burgundy text-burgundy rounded-md font-medium transition-all duration-300 hover:bg-burgundy/5 hover:shadow-sm active:scale-[0.98];
+    @apply px-6 py-3 border border-burgundy text-burgundy rounded-md font-medium transition-all duration-300 hover:bg-burgundy/5 hover:shadow-sm active:scale-[0.98] dark:border-filigree dark:text-filigree dark:hover:bg-filigree/10 dark:hover:shadow-gold;
   }
   
   .card-hover {
-    @apply transition-all duration-300 hover:shadow-elegant hover:-translate-y-1;
+    @apply transition-all duration-300 hover:shadow-elegant hover:-translate-y-1 dark:hover:shadow-gold;
   }
   
   .animate-delay-100 {
@@ -98,6 +130,27 @@
   .animate-delay-500 {
     animation-delay: 500ms;
   }
+
+  /* Royal dark theme specific classes */
+  .filigree-border {
+    @apply relative before:absolute before:-inset-[1px] before:rounded-md before:p-[1px] before:bg-filigree/20 before:opacity-0 hover:before:opacity-100 before:transition-opacity;
+  }
+
+  .filigree-hover {
+    @apply relative after:absolute after:inset-0 after:bg-filigree-pattern after:bg-no-repeat after:bg-center after:bg-contain after:opacity-0 hover:after:opacity-20 after:transition-opacity after:duration-300 after:animate-filigreeAppear after:z-0;
+  }
+
+  .filigree-text {
+    @apply bg-gold-gradient bg-clip-text text-transparent;
+  }
+
+  .golden-glow {
+    @apply transition-all duration-300 hover:shadow-gold;
+  }
+
+  .nav-item {
+    @apply relative overflow-hidden after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:translate-y-1 after:bg-filigree after:opacity-0 after:transition-all hover:after:translate-y-0 hover:after:opacity-100;
+  }
 }
 
 /* Custom scrollbar */
@@ -106,16 +159,16 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: hsl(var(--background));
+  @apply bg-background dark:bg-royal-dark;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(var(--muted-foreground) / 0.3);
+  @apply bg-muted-foreground/30 dark:bg-filigree/30;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--muted-foreground) / 0.5);
+  @apply bg-muted-foreground/50 dark:bg-filigree/50;
 }
 
 /* Smooth transition for all elements */
@@ -149,4 +202,69 @@
 
 .text-saffron-dark {
   color: #E57300;
+}
+
+/* Dark mode background with gold gradient filigree effect */
+.bg-royal {
+  background-color: #034219;
+  background-image: radial-gradient(circle at 50% 50%, #045823 0%, #034219 70%, #022712 100%);
+}
+
+/* Gold shimmer effect */
+.gold-shimmer {
+  background: linear-gradient(to right, #BF953F 0%, #FCF6BA 20%, #B38728 40%, #FBF5B7 60%, #AA771C 80%, #BF953F 100%);
+  background-size: 200% auto;
+  background-position: 0 0;
+  animation: shimmer 2s linear infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline;
+}
+
+.filigree-pattern-bg {
+  position: relative;
+}
+
+.filigree-pattern-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/lovable-uploads/30545a1f-538a-4935-bb2c-68f6fe310646.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.05;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Card with filigree border that appears on hover */
+.royal-card {
+  @apply bg-royal-light border border-filigree/10 relative overflow-hidden;
+}
+
+.royal-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/lovable-uploads/30545a1f-538a-4935-bb2c-68f6fe310646.png');
+  background-size: 120% 120%;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.royal-card:hover::after {
+  opacity: 0.08;
+}
+
+.royal-card > * {
+  position: relative;
+  z-index: 1;
 }

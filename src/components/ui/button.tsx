@@ -1,3 +1,4 @@
+
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
@@ -9,15 +10,17 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        default: "bg-primary text-primary-foreground hover:bg-primary/90 dark:after:bg-filigree-pattern dark:after:bg-contain dark:after:bg-center dark:after:absolute dark:after:inset-0 dark:after:opacity-0 dark:hover:after:opacity-10 dark:after:transition-opacity dark:hover:shadow-gold relative overflow-hidden",
         destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+          "bg-destructive text-destructive-foreground hover:bg-destructive/90 dark:border-red-800/40",
         outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+          "border border-input bg-background hover:bg-accent hover:text-accent-foreground dark:border-filigree/40 dark:hover:border-filigree dark:hover:bg-filigree/5 dark:hover:shadow-gold",
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80 dark:bg-royal-light dark:text-filigree dark:border dark:border-filigree/20 dark:hover:border-filigree/50 dark:after:bg-filigree-pattern dark:after:bg-contain dark:after:bg-center dark:after:absolute dark:after:inset-0 dark:after:opacity-0 dark:hover:after:opacity-10 dark:after:transition-opacity",
+        ghost: "hover:bg-accent hover:text-accent-foreground dark:hover:bg-filigree/10 dark:hover:text-filigree dark:hover:shadow-gold/20",
+        link: "text-primary underline-offset-4 hover:underline dark:text-filigree",
+        royal: "bg-royal text-filigree border border-filigree/30 hover:bg-royal-light hover:border-filigree/60 hover:shadow-gold relative overflow-hidden after:absolute after:inset-0 after:bg-filigree-pattern after:bg-no-repeat after:bg-center after:bg-contain after:opacity-0 hover:after:opacity-10 after:transition-opacity",
+        filigree: "bg-filigree text-royal-dark hover:bg-filigree-light relative overflow-hidden after:absolute after:inset-0 after:bg-filigree-pattern after:bg-no-repeat after:bg-center after:bg-contain after:opacity-0 hover:after:opacity-20 after:transition-opacity hover:shadow-gold",
       },
       size: {
         default: "h-10 px-4 py-2",
