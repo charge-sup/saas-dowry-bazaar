@@ -82,6 +82,25 @@ const subscriptionTiers: SubscriptionTier[] = [
     hoverColor: 'hover:bg-navy-dark',
     textColor: 'text-navy',
   },
+  {
+    id: 4,
+    name: 'Brahmin Wisdom',
+    subtitle: 'For Brahmin families',
+    price: 22000,
+    period: 'per month',
+    description: 'Scholarly and spiritual collections with traditional Vedic influences.',
+    community: 'Brahmin',
+    features: [
+      { id: 1, text: 'Sacred texts and manuscripts replicas' },
+      { id: 2, text: 'Traditional puja and ritual items', highlighted: true },
+      { id: 3, text: 'Vedic-inspired home décor' },
+      { id: 4, text: 'Personalized spiritual consultations' },
+      { id: 5, text: 'Exclusive access to scholarly artifacts' },
+    ],
+    color: 'bg-saffron',
+    hoverColor: 'hover:bg-saffron-dark',
+    textColor: 'text-saffron-dark',
+  },
 ];
 
 const SubscriptionTiers = () => {

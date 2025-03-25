@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
@@ -133,4 +132,21 @@
 
 .premium-rotate-hover:hover {
   transform: rotate3d(0, 1, 0.2, 15deg);
+}
+
+/* New color variables for the Brahmin tier */
+.bg-saffron {
+  background-color: #FF9933;
+}
+
+.bg-saffron-dark {
+  background-color: #E57300;
+}
+
+.text-saffron {
+  color: #FF9933;
+}
+
+.text-saffron-dark {
+  color: #E57300;
 }
